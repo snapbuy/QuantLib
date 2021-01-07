@@ -147,4 +147,4 @@ jobs:
         echo "#include <ql/quantlib.hpp>" > test1.cpp && echo "int main() { return 0; }" >> test1.cpp
         echo "#include <ql/quantlib.hpp>" > test2.cpp && echo "namespace QuantLib { ThreadKey sessionId() { return 0; } }" >> test2.cpp
         make install
-        ${{ matrix.cxx }} ${{ matrix.cxxflags }} test1.cpp test2.cpp -lQuantLib ${{ matrix.moreflags }}
+        ${{ matrix.cxx }} ${{ matrix.cxxflags }} test1.cpp test2.cpp -lQuantLib -lboost_thread -lboost_system -pthread
